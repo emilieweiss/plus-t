@@ -9,18 +9,25 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as Sign_upRouteImport } from './routes/sign_up'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as Past_coursesPast_coursesRouteImport } from './routes/past_courses/past_courses'
+import { Route as Past_coursesPast2025RouteImport } from './routes/past_courses/past2025'
+import { Route as Past_coursesPast2024RouteImport } from './routes/past_courses/past2024'
+import { Route as Past_coursesPast2023RouteImport } from './routes/past_courses/past2023'
+import { Route as AboutAbout_teamRouteImport } from './routes/about/about_team'
+import { Route as AboutAbout_courseRouteImport } from './routes/about/about_course'
+import { Route as AboutAboutRouteImport } from './routes/about/about'
 
+const Sign_upRoute = Sign_upRouteImport.update({
+  id: '/sign_up',
+  path: '/sign_up',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -28,51 +35,146 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Past_coursesPast_coursesRoute =
+  Past_coursesPast_coursesRouteImport.update({
+    id: '/past_courses/past_courses',
+    path: '/past_courses/past_courses',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Past_coursesPast2025Route = Past_coursesPast2025RouteImport.update({
+  id: '/past_courses/past2025',
+  path: '/past_courses/past2025',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Past_coursesPast2024Route = Past_coursesPast2024RouteImport.update({
+  id: '/past_courses/past2024',
+  path: '/past_courses/past2024',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Past_coursesPast2023Route = Past_coursesPast2023RouteImport.update({
+  id: '/past_courses/past2023',
+  path: '/past_courses/past2023',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutAbout_teamRoute = AboutAbout_teamRouteImport.update({
+  id: '/about/about_team',
+  path: '/about/about_team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutAbout_courseRoute = AboutAbout_courseRouteImport.update({
+  id: '/about/about_course',
+  path: '/about/about_course',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutAboutRoute = AboutAboutRouteImport.update({
+  id: '/about/about',
+  path: '/about/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/sign_up': typeof Sign_upRoute
+  '/about/about': typeof AboutAboutRoute
+  '/about/about_course': typeof AboutAbout_courseRoute
+  '/about/about_team': typeof AboutAbout_teamRoute
+  '/past_courses/past2023': typeof Past_coursesPast2023Route
+  '/past_courses/past2024': typeof Past_coursesPast2024Route
+  '/past_courses/past2025': typeof Past_coursesPast2025Route
+  '/past_courses/past_courses': typeof Past_coursesPast_coursesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/sign_up': typeof Sign_upRoute
+  '/about/about': typeof AboutAboutRoute
+  '/about/about_course': typeof AboutAbout_courseRoute
+  '/about/about_team': typeof AboutAbout_teamRoute
+  '/past_courses/past2023': typeof Past_coursesPast2023Route
+  '/past_courses/past2024': typeof Past_coursesPast2024Route
+  '/past_courses/past2025': typeof Past_coursesPast2025Route
+  '/past_courses/past_courses': typeof Past_coursesPast_coursesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/sign_up': typeof Sign_upRoute
+  '/about/about': typeof AboutAboutRoute
+  '/about/about_course': typeof AboutAbout_courseRoute
+  '/about/about_team': typeof AboutAbout_teamRoute
+  '/past_courses/past2023': typeof Past_coursesPast2023Route
+  '/past_courses/past2024': typeof Past_coursesPast2024Route
+  '/past_courses/past2025': typeof Past_coursesPast2025Route
+  '/past_courses/past_courses': typeof Past_coursesPast_coursesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/sign_up'
+    | '/about/about'
+    | '/about/about_course'
+    | '/about/about_team'
+    | '/past_courses/past2023'
+    | '/past_courses/past2024'
+    | '/past_courses/past2025'
+    | '/past_courses/past_courses'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact'
-  id: '__root__' | '/' | '/about' | '/contact'
+  to:
+    | '/'
+    | '/contact'
+    | '/sign_up'
+    | '/about/about'
+    | '/about/about_course'
+    | '/about/about_team'
+    | '/past_courses/past2023'
+    | '/past_courses/past2024'
+    | '/past_courses/past2025'
+    | '/past_courses/past_courses'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/sign_up'
+    | '/about/about'
+    | '/about/about_course'
+    | '/about/about_team'
+    | '/past_courses/past2023'
+    | '/past_courses/past2024'
+    | '/past_courses/past2025'
+    | '/past_courses/past_courses'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  Sign_upRoute: typeof Sign_upRoute
+  AboutAboutRoute: typeof AboutAboutRoute
+  AboutAbout_courseRoute: typeof AboutAbout_courseRoute
+  AboutAbout_teamRoute: typeof AboutAbout_teamRoute
+  Past_coursesPast2023Route: typeof Past_coursesPast2023Route
+  Past_coursesPast2024Route: typeof Past_coursesPast2024Route
+  Past_coursesPast2025Route: typeof Past_coursesPast2025Route
+  Past_coursesPast_coursesRoute: typeof Past_coursesPast_coursesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sign_up': {
+      id: '/sign_up'
+      path: '/sign_up'
+      fullPath: '/sign_up'
+      preLoaderRoute: typeof Sign_upRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -82,13 +184,69 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/past_courses/past_courses': {
+      id: '/past_courses/past_courses'
+      path: '/past_courses/past_courses'
+      fullPath: '/past_courses/past_courses'
+      preLoaderRoute: typeof Past_coursesPast_coursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/past_courses/past2025': {
+      id: '/past_courses/past2025'
+      path: '/past_courses/past2025'
+      fullPath: '/past_courses/past2025'
+      preLoaderRoute: typeof Past_coursesPast2025RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/past_courses/past2024': {
+      id: '/past_courses/past2024'
+      path: '/past_courses/past2024'
+      fullPath: '/past_courses/past2024'
+      preLoaderRoute: typeof Past_coursesPast2024RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/past_courses/past2023': {
+      id: '/past_courses/past2023'
+      path: '/past_courses/past2023'
+      fullPath: '/past_courses/past2023'
+      preLoaderRoute: typeof Past_coursesPast2023RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/about_team': {
+      id: '/about/about_team'
+      path: '/about/about_team'
+      fullPath: '/about/about_team'
+      preLoaderRoute: typeof AboutAbout_teamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/about_course': {
+      id: '/about/about_course'
+      path: '/about/about_course'
+      fullPath: '/about/about_course'
+      preLoaderRoute: typeof AboutAbout_courseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/about': {
+      id: '/about/about'
+      path: '/about/about'
+      fullPath: '/about/about'
+      preLoaderRoute: typeof AboutAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  Sign_upRoute: Sign_upRoute,
+  AboutAboutRoute: AboutAboutRoute,
+  AboutAbout_courseRoute: AboutAbout_courseRoute,
+  AboutAbout_teamRoute: AboutAbout_teamRoute,
+  Past_coursesPast2023Route: Past_coursesPast2023Route,
+  Past_coursesPast2024Route: Past_coursesPast2024Route,
+  Past_coursesPast2025Route: Past_coursesPast2025Route,
+  Past_coursesPast_coursesRoute: Past_coursesPast_coursesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
