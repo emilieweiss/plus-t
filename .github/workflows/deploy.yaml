@@ -21,6 +21,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          local-dir: dist # brug "." hvis du ikke har build-folder
+          local-dir: dist/ # brug "." hvis du ikke har build-folder
           server-dir: /   # din webroot er / som på dit screenshot
           dangerous-clean-slate: false
