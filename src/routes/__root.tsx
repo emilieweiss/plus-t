@@ -1,7 +1,8 @@
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
-import { useRef, useState } from 'react' 
+import { useEffect, useRef, useState } from 'react' 
 import logo from '../assets/logo.png'
 import { useMatchRoute } from '@tanstack/react-router'
+import { Menu } from 'lucide-react'
 
 const base = 'inline-block pb-3'
 const active = 'text-white border-b-2 border-brand-green'
@@ -44,7 +45,7 @@ function Dropdown({
       </Link>
 
       <div
-        className={`absolute right-0 mt-2 w-56 rounded-md border border-white/10 bg-brand-black shadow-lg z-50 ${
+        className={`absolute right-0 mt-2 w-56 rounded-md border border-white/10 bg-brand-black z-50 ${
           open ? 'block' : 'hidden'
         }`}
         onMouseEnter={handleEnter}
@@ -69,12 +70,31 @@ function Dropdown({
 }
 
 //Layout for hele app, her kan ligges menu, footer osv.
-export const Route = createRootRoute({
-component: () => (
+function RootLayout() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuOpen]);
+
+  return (
     <div className="min-h-screen w-screen bg-brand-black text-white flex flex-col">
-      <nav className="h-25 border-white/10 px-10 flex items-center">
-        <img src={logo} alt="Plus T logo" className="h-20 w-auto mt-10"/>
-        <ul className="ml-auto flex gap-12">
+      <nav className="h-25 px-10 flex items-center">
+        <img src={logo} alt="Plus T logo" className="h-10 lg:h-20 w-auto mt-10"/>
+        <ul className="hidden ml-auto lg:flex gap-12">
           <li>
             <Link to="/" activeProps={{ className: `${base} ${active}` }} inactiveProps={{ className: `${base} ${inactive}` }}>
               Hjem
@@ -111,10 +131,68 @@ component: () => (
             </Link>
           </li>
         </ul>
+        
+
+        <button
+          className="ml-auto lg:hidden flex items-center justify-center p-2"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-label="Åben menu"
+          type="button"
+        >
+          <Menu className="w-8 h-8 text-white cursor-pointer" />
+        </button>
       </nav>
+
+      {menuOpen && (
+        <div 
+          ref={menuRef}
+          className="lg:hidden absolute top-[120px] left-0 w-full bg-brand-black border-t border-white/10 flex flex-col items-center space-y-4 py-6 z-50"
+        >
+          <Link 
+            to="/" 
+            className="text-gray-300 hover:text-white text-lg"
+            onClick={() => setMenuOpen(false)}
+          >
+            Hjem
+          </Link>
+          <Link 
+            to="/past_courses/past_courses" 
+            className="text-gray-300 hover:text-white text-lg"
+            onClick={() => setMenuOpen(false)}
+          >
+            Tidligere kurser
+          </Link>
+          <Link 
+            to="/sign_up" 
+            className="text-gray-300 hover:text-white text-lg"
+            onClick={() => setMenuOpen(false)}
+          >
+            Tilmeld dig
+          </Link>
+          <Link 
+            to="/about/about" 
+            className="text-gray-300 hover:text-white text-lg"
+            onClick={() => setMenuOpen(false)}
+          >
+            Om
+          </Link>
+          <Link 
+            to="/contact" 
+            className="text-gray-300 hover:text-white text-lg"
+            onClick={() => setMenuOpen(false)}
+          >
+            Kontakt
+          </Link>
+        </div>
+      )}
+
       <main className="flex-1 p-8">
         <Outlet />
       </main>
     </div>
-  ),
+  )
+}
+
+export const Route = createRootRoute({
+  component: RootLayout,
 })
