@@ -4,7 +4,7 @@ import logo from '../assets/logo.png'
 import { useMatchRoute } from '@tanstack/react-router'
 
 const base = 'inline-block pb-3'
-const active = 'text-white border-b-2 border-[#58a66b]'
+const active = 'text-white border-b-2 border-brand-green'
 const inactive = 'text-gray-300 hover:text-white border-b-2 border-transparent'
 
 function Dropdown({
@@ -27,7 +27,7 @@ function Dropdown({
   }
 
   const handleLeave = () => {
-    timer.current = setTimeout(() => setOpen(false), 400) 
+    timer.current = setTimeout(() => setOpen(false), 200) 
   }
 
   return (
@@ -36,12 +36,15 @@ function Dropdown({
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
     >
-      <button className={`${base} ${isActive ? active : inactive}`}>
+      <Link
+        to={baseTo}
+        className={`${base} ${isActive ? active : inactive}`}
+      >
         {label}
-      </button>
+      </Link>
 
       <div
-        className={`absolute right-0 mt-2 w-56 rounded-md border border-white/10 bg-brand-black/95 shadow-lg z-50 ${
+        className={`absolute right-0 mt-2 w-56 rounded-md border border-white/10 bg-brand-black shadow-lg z-50 ${
           open ? 'block' : 'hidden'
         }`}
         onMouseEnter={handleEnter}
@@ -80,11 +83,10 @@ component: () => (
           <li>
             <Dropdown
               label="Tidligere kurser"
-              baseTo="/past_courses"
+              baseTo="/past_courses/past_courses"
               items={[
                 { to: '/past_courses/past2025', label: '2025' },
                 { to: '/past_courses/past2024', label: '2024' },
-                { to: '/past_courses/past2023', label: '2023' },
               ]}
             />
           </li>
@@ -96,7 +98,7 @@ component: () => (
           <li>
             <Dropdown
               label="Om"
-              baseTo="/about"
+              baseTo="/about/about"
               items={[
                 { to: '/about/about_course', label: 'Om kurset' },
                 { to: '/about/about_team', label: 'Om teamet' },

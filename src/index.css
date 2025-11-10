@@ -1,2 +1,26 @@
-@import "tailwindcss";
+/* fonts først (hvis du bruger den) */
 @import "@fontsource-variable/montserrat";
+
+/* Tailwind */
+@import "tailwindcss";
+
+/* CSS-first theme */
+@theme {
+  /* font families */
+  --font-sans: "Montserrat", system-ui, sans-serif;
+
+  /* primære logo-farver */
+  --color-brand-black: #121212;
+  --color-brand-darkgreen: #0e2c1d;
+  --color-brand-green: #58a66b;
+  --color-brand-gray: #6b717e;
+  --color-brand-white: #ffffff;
+
+  /* sekundære farver */
+  --color-secondary-red: #b44d3b;
+  --color-secondary-yellow: #e7c447;
+  --color-secondary-green: #316c3d;
+  --color-secondary-bluegray: #60747f;
+  --color-secondary-teal: #397479;
+  --color-secondary-purple: #6c3b78;
+}
