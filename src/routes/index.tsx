@@ -1,4 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
+import ImageCarousel from '../components/ui/ImageCarousel'
+
 export const Route = createFileRoute('/')({
-  component: () => <h1 className="text-2xl font-bold">Velkommen til Plus T</h1>,
+  component: () => (
+    <div className="flex flex-col items-center gap-6">
+      <ImageCarousel />
+    </div>
+  ),
 })
