@@ -2,10 +2,8 @@ import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
-import { ArrowLeft, ArrowRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -171,61 +169,45 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
 
 function CarouselPrevious({
   className,
-  variant = "ghost",
-  size = "icon",
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<"button">) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
-    <Button
+    <button
       data-slot="carousel-previous"
-      variant={variant}
-      size={size}
       className={cn(
-        "absolute size-8 z-10 text-brand-green hover:text-brand-green/80",
-        orientation === "horizontal"
-          ? "top-1/2 left-4 -translate-y-1/2"
-          : "top-4 left-1/2 -translate-x-1/2 rotate-90",
+        "absolute inset-y-0 left-0 w-1/3 cursor-pointer z-10 outline-none focus:outline-none",
+        orientation === "vertical" && "inset-x-0 top-0 h-1/3 w-full",
         className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
+      aria-label="Previous slide"
       {...props}
-    >
-      <ArrowLeft />
-      <span className="sr-only">Previous slide</span>
-    </Button>
+    />
   )
 }
 
 function CarouselNext({
   className,
-  variant = "ghost",
-  size = "icon",
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<"button">) {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
-    <Button
+    <button
       data-slot="carousel-next"
-      variant={variant}
-      size={size}
       className={cn(
-        "absolute size-8 z-10 text-brand-green hover:text-brand-green/80",
-        orientation === "horizontal"
-          ? "top-1/2 right-4 -translate-y-1/2"
-          : "bottom-4 left-1/2 -translate-x-1/2 rotate-90",
+        "absolute inset-y-0 right-0 w-1/3 cursor-pointer z-10 outline-none focus:outline-none",
+        orientation === "vertical" && "inset-x-0 bottom-0 h-1/3 w-full",
         className
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
+      aria-label="Next slide"
       {...props}
-    >
-      <ArrowRight />
-      <span className="sr-only">Next slide</span>
-    </Button>
+    />
   )
 }
 
