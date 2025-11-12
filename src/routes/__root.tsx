@@ -2,7 +2,7 @@ import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
 import { useEffect, useRef, useState } from 'react' 
 import logo from '../assets/logo.png'
 import { useMatchRoute } from '@tanstack/react-router'
-import { Menu } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const base = 'inline-block pb-3'
 const active = 'text-white border-b-2 border-brand-green'
@@ -92,8 +92,8 @@ function RootLayout() {
 
   return (
     <div className="min-h-screen w-screen bg-brand-black text-white flex flex-col">
-      <nav className="h-25 px-10 flex items-center">
-        <img src={logo} alt="Plus T logo" className="h-10 lg:h-20 w-auto mt-10"/>
+      <nav className="h-25 px-6 lg:px-10 flex items-center">
+        <img src={logo} alt="Plus T logo" className="h-10 lg:h-20 w-auto mt-0 lg:mt-10"/>
         <ul className="hidden ml-auto lg:flex gap-12">
           <li>
             <Link to="/" activeProps={{ className: `${base} ${active}` }} inactiveProps={{ className: `${base} ${inactive}` }}>
@@ -132,61 +132,116 @@ function RootLayout() {
           </li>
         </ul>
         
-
-        <button
-          className="ml-auto lg:hidden flex items-center justify-center p-2"
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-label="Åben menu"
-          type="button"
-        >
-          <Menu className="w-8 h-8 text-white cursor-pointer" />
-        </button>
       </nav>
+
+      {/* Flydende menu-knap i nederste højre hjørne på mobil */}
+      <button
+        className="lg:hidden fixed bottom-6 right-6 bg-brand-black/80 text-white p-4 rounded-full shadow-lg z-40"
+        onClick={() => setMenuOpen((open) => !open)}
+        aria-label="Åben menu"
+        type="button"
+      >
+        <Menu className="w-6 h-6" />
+      </button>
 
       {menuOpen && (
         <div 
           ref={menuRef}
-          className="lg:hidden absolute top-[120px] left-0 w-full bg-brand-black border-t border-white/10 flex flex-col items-center space-y-4 py-6 z-50"
+          className="lg:hidden fixed inset-0 bg-brand-black flex flex-col items-center justify-center z-50"
         >
-          <Link 
-            to="/" 
-            className="text-gray-300 hover:text-white text-lg"
+          {/* Luk-knap i øverste højre hjørne */}
+          <button
             onClick={() => setMenuOpen(false)}
+            className="absolute top-6 right-6 text-white hover:text-gray-300"
+            aria-label="Luk menu"
           >
-            Hjem
-          </Link>
-          <Link 
-            to="/past_courses/past_courses" 
-            className="text-gray-300 hover:text-white text-lg"
-            onClick={() => setMenuOpen(false)}
-          >
-            Tidligere kurser
-          </Link>
-          <Link 
-            to="/sign_up" 
-            className="text-gray-300 hover:text-white text-lg"
-            onClick={() => setMenuOpen(false)}
-          >
-            Tilmeld dig
-          </Link>
-          <Link 
-            to="/about/about" 
-            className="text-gray-300 hover:text-white text-lg"
-            onClick={() => setMenuOpen(false)}
-          >
-            Om
-          </Link>
-          <Link 
-            to="/contact" 
-            className="text-gray-300 hover:text-white text-lg"
-            onClick={() => setMenuOpen(false)}
-          >
-            Kontakt
-          </Link>
+            <X className="w-8 h-8" />
+          </button>
+
+          {/* Menu links - centreret */}
+          <div className="flex flex-col items-center space-y-6">
+            <Link 
+              to="/" 
+              className="text-white hover:text-brand-green text-xl"
+              onClick={() => setMenuOpen(false)}
+            >
+              Hjem
+            </Link>
+            
+            {/* Tidligere kurser med sub-links */}
+            <div className="flex flex-col items-center space-y-3">
+              <Link 
+                to="/past_courses/past_courses" 
+                className="text-white hover:text-brand-green text-xl"
+                onClick={() => setMenuOpen(false)}
+              >
+                Tidligere kurser
+              </Link>
+              <div className="flex flex-col items-center space-y-2">
+                <Link 
+                  to="/past_courses/past2025" 
+                  className="text-gray-400 hover:text-brand-green text-base"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  2025
+                </Link>
+                <Link 
+                  to="/past_courses/past2024" 
+                  className="text-gray-400 hover:text-brand-green text-base"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  2024
+                </Link>
+              </div>
+            </div>
+
+            <Link 
+              to="/sign_up" 
+              className="text-white hover:text-brand-green text-xl"
+              onClick={() => setMenuOpen(false)}
+            >
+              Tilmeld dig
+            </Link>
+            
+            {/* Om med sub-links */}
+            <div className="flex flex-col items-center space-y-3">
+              <Link 
+                to="/about/about" 
+                className="text-white hover:text-brand-green text-xl"
+                onClick={() => setMenuOpen(false)}
+              >
+                Om
+              </Link>
+              <div className="flex flex-col items-center space-y-2">
+                <Link 
+                  to="/about/about_course" 
+                  className="text-gray-400 hover:text-brand-green text-base"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Om kurset
+                </Link>
+                <Link 
+                  to="/about/about_team" 
+                  className="text-gray-400 hover:text-brand-green text-base"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Om teamet
+                </Link>
+              </div>
+            </div>
+
+            <Link 
+              to="/contact" 
+              className="text-white hover:text-brand-green text-xl"
+              onClick={() => setMenuOpen(false)}
+            >
+              Kontakt
+            </Link>
+          </div>
         </div>
       )}
 
-      <main className="flex-1 p-8">
+      <main className="flex-1 py-0 md:py-8">
         <Outlet />
       </main>
     </div>
