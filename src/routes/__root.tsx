@@ -45,7 +45,7 @@ function Dropdown({
       </Link>
 
       <div
-        className={`absolute right-0 mt-2 w-56 rounded-md border border-white/10 bg-brand-black z-50 ${
+        className={`absolute left-1/2 -translate-x-1/2 mt-2 w-56 rounded-md border border-white/10 bg-brand-black z-50 ${
           open ? 'block' : 'hidden'
         }`}
         onMouseEnter={handleEnter}
@@ -93,7 +93,9 @@ function RootLayout() {
   return (
     <div className="min-h-screen w-screen bg-brand-black text-white flex flex-col">
       <nav className="h-25 px-6 lg:px-10 flex items-center">
-        <img src={logo} alt="Plus T logo" className="h-10 lg:h-20 w-auto mt-0 lg:mt-10"/>
+        <Link to="/">
+          <img src={logo} alt="Plus T logo" className="h-10 lg:h-20 w-auto mt-0 lg:mt-10 cursor-pointer"/>
+        </Link>
         <ul className="hidden ml-auto lg:flex gap-12">
           <li>
             <Link to="/" activeProps={{ className: `${base} ${active}` }} inactiveProps={{ className: `${base} ${inactive}` }}>
@@ -111,9 +113,13 @@ function RootLayout() {
             />
           </li>
           <li>
-            <Link to="/sign_up" activeProps={{ className: `${base} ${active}` }} inactiveProps={{ className: `${base} ${inactive}` }}>
-              Tilmeld dig
-            </Link>
+            <Dropdown
+              label="Tilmeld dig"
+              baseTo="/sign_up/sign_up"
+              items={[
+                { to: '/sign_up/guide_for_sig_up', label: 'How to guide' },
+              ]}
+            />
           </li>
           <li>
             <Dropdown
@@ -195,13 +201,24 @@ function RootLayout() {
               </div>
             </div>
 
-            <Link 
-              to="/sign_up" 
-              className="text-white hover:text-brand-green text-xl"
-              onClick={() => setMenuOpen(false)}
-            >
-              Tilmeld dig
-            </Link>
+            <div className="flex flex-col items-center space-y-3">
+              <Link 
+                to="/sign_up/sign_up" 
+                className="text-white hover:text-brand-green text-xl"
+                onClick={() => setMenuOpen(false)}
+              >
+                Tilmeld dig
+              </Link>
+              <div className="flex flex-col items-center space-y-2">
+                <Link 
+                  to="/sign_up/guide_for_sig_up" 
+                  className="text-gray-400 hover:text-brand-green text-base"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  How to guide
+                </Link>
+              </div>
+            </div>
             
             {/* Om med sub-links */}
             <div className="flex flex-col items-center space-y-3">

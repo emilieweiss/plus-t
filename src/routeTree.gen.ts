@@ -9,9 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as Sign_upRouteImport } from './routes/sign_up'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as Sign_upSign_upRouteImport } from './routes/sign_up/sign_up'
+import { Route as Sign_upGuide_for_sig_upRouteImport } from './routes/sign_up/guide_for_sig_up'
 import { Route as Past_coursesPast_coursesRouteImport } from './routes/past_courses/past_courses'
 import { Route as Past_coursesPast2025RouteImport } from './routes/past_courses/past2025'
 import { Route as Past_coursesPast2024RouteImport } from './routes/past_courses/past2024'
@@ -20,11 +21,6 @@ import { Route as AboutAbout_teamRouteImport } from './routes/about/about_team'
 import { Route as AboutAbout_courseRouteImport } from './routes/about/about_course'
 import { Route as AboutAboutRouteImport } from './routes/about/about'
 
-const Sign_upRoute = Sign_upRouteImport.update({
-  id: '/sign_up',
-  path: '/sign_up',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -33,6 +29,16 @@ const ContactRoute = ContactRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Sign_upSign_upRoute = Sign_upSign_upRouteImport.update({
+  id: '/sign_up/sign_up',
+  path: '/sign_up/sign_up',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Sign_upGuide_for_sig_upRoute = Sign_upGuide_for_sig_upRouteImport.update({
+  id: '/sign_up/guide_for_sig_up',
+  path: '/sign_up/guide_for_sig_up',
   getParentRoute: () => rootRouteImport,
 } as any)
 const Past_coursesPast_coursesRoute =
@@ -75,7 +81,6 @@ const AboutAboutRoute = AboutAboutRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/sign_up': typeof Sign_upRoute
   '/about/about': typeof AboutAboutRoute
   '/about/about_course': typeof AboutAbout_courseRoute
   '/about/about_team': typeof AboutAbout_teamRoute
@@ -83,11 +88,12 @@ export interface FileRoutesByFullPath {
   '/past_courses/past2024': typeof Past_coursesPast2024Route
   '/past_courses/past2025': typeof Past_coursesPast2025Route
   '/past_courses/past_courses': typeof Past_coursesPast_coursesRoute
+  '/sign_up/guide_for_sig_up': typeof Sign_upGuide_for_sig_upRoute
+  '/sign_up/sign_up': typeof Sign_upSign_upRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/sign_up': typeof Sign_upRoute
   '/about/about': typeof AboutAboutRoute
   '/about/about_course': typeof AboutAbout_courseRoute
   '/about/about_team': typeof AboutAbout_teamRoute
@@ -95,12 +101,13 @@ export interface FileRoutesByTo {
   '/past_courses/past2024': typeof Past_coursesPast2024Route
   '/past_courses/past2025': typeof Past_coursesPast2025Route
   '/past_courses/past_courses': typeof Past_coursesPast_coursesRoute
+  '/sign_up/guide_for_sig_up': typeof Sign_upGuide_for_sig_upRoute
+  '/sign_up/sign_up': typeof Sign_upSign_upRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/sign_up': typeof Sign_upRoute
   '/about/about': typeof AboutAboutRoute
   '/about/about_course': typeof AboutAbout_courseRoute
   '/about/about_team': typeof AboutAbout_teamRoute
@@ -108,13 +115,14 @@ export interface FileRoutesById {
   '/past_courses/past2024': typeof Past_coursesPast2024Route
   '/past_courses/past2025': typeof Past_coursesPast2025Route
   '/past_courses/past_courses': typeof Past_coursesPast_coursesRoute
+  '/sign_up/guide_for_sig_up': typeof Sign_upGuide_for_sig_upRoute
+  '/sign_up/sign_up': typeof Sign_upSign_upRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/contact'
-    | '/sign_up'
     | '/about/about'
     | '/about/about_course'
     | '/about/about_team'
@@ -122,11 +130,12 @@ export interface FileRouteTypes {
     | '/past_courses/past2024'
     | '/past_courses/past2025'
     | '/past_courses/past_courses'
+    | '/sign_up/guide_for_sig_up'
+    | '/sign_up/sign_up'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/contact'
-    | '/sign_up'
     | '/about/about'
     | '/about/about_course'
     | '/about/about_team'
@@ -134,11 +143,12 @@ export interface FileRouteTypes {
     | '/past_courses/past2024'
     | '/past_courses/past2025'
     | '/past_courses/past_courses'
+    | '/sign_up/guide_for_sig_up'
+    | '/sign_up/sign_up'
   id:
     | '__root__'
     | '/'
     | '/contact'
-    | '/sign_up'
     | '/about/about'
     | '/about/about_course'
     | '/about/about_team'
@@ -146,12 +156,13 @@ export interface FileRouteTypes {
     | '/past_courses/past2024'
     | '/past_courses/past2025'
     | '/past_courses/past_courses'
+    | '/sign_up/guide_for_sig_up'
+    | '/sign_up/sign_up'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
-  Sign_upRoute: typeof Sign_upRoute
   AboutAboutRoute: typeof AboutAboutRoute
   AboutAbout_courseRoute: typeof AboutAbout_courseRoute
   AboutAbout_teamRoute: typeof AboutAbout_teamRoute
@@ -159,17 +170,12 @@ export interface RootRouteChildren {
   Past_coursesPast2024Route: typeof Past_coursesPast2024Route
   Past_coursesPast2025Route: typeof Past_coursesPast2025Route
   Past_coursesPast_coursesRoute: typeof Past_coursesPast_coursesRoute
+  Sign_upGuide_for_sig_upRoute: typeof Sign_upGuide_for_sig_upRoute
+  Sign_upSign_upRoute: typeof Sign_upSign_upRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sign_up': {
-      id: '/sign_up'
-      path: '/sign_up'
-      fullPath: '/sign_up'
-      preLoaderRoute: typeof Sign_upRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -182,6 +188,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sign_up/sign_up': {
+      id: '/sign_up/sign_up'
+      path: '/sign_up/sign_up'
+      fullPath: '/sign_up/sign_up'
+      preLoaderRoute: typeof Sign_upSign_upRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sign_up/guide_for_sig_up': {
+      id: '/sign_up/guide_for_sig_up'
+      path: '/sign_up/guide_for_sig_up'
+      fullPath: '/sign_up/guide_for_sig_up'
+      preLoaderRoute: typeof Sign_upGuide_for_sig_upRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/past_courses/past_courses': {
@@ -239,7 +259,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
-  Sign_upRoute: Sign_upRoute,
   AboutAboutRoute: AboutAboutRoute,
   AboutAbout_courseRoute: AboutAbout_courseRoute,
   AboutAbout_teamRoute: AboutAbout_teamRoute,
@@ -247,6 +266,8 @@ const rootRouteChildren: RootRouteChildren = {
   Past_coursesPast2024Route: Past_coursesPast2024Route,
   Past_coursesPast2025Route: Past_coursesPast2025Route,
   Past_coursesPast_coursesRoute: Past_coursesPast_coursesRoute,
+  Sign_upGuide_for_sig_upRoute: Sign_upGuide_for_sig_upRoute,
+  Sign_upSign_upRoute: Sign_upSign_upRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

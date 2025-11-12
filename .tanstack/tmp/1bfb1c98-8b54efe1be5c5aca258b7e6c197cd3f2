@@ -1,0 +1,4 @@
+import { createFileRoute } from '@tanstack/react-router'
+export const Route = createFileRoute('/sign_up/guide_for_sig_up')({
+  component: () => <h1 className="text-2xl font-bold">Guide for Sign Up</h1>,
+})

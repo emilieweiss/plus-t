@@ -139,10 +139,16 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply bg-brand-black;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-brand-black text-foreground;
+  }
+  h2 {
+    @apply text-xl md:text-4xl lg:text-3xl font-bold text-white mb-4;
   }
   p {
-    @apply font-light text-base md:text-lg;
+    @apply font-light text-sm md:text-base mb-4;
   }
 }
