@@ -27,8 +27,16 @@ export const Route = createFileRoute("/sign_up/guide_for_sign_up")({
           holde dig opdateret når det sker.
         </p>
         <p>
-          Man kan også følge med på DDS’s hjemmeside, hvor tilmeldingen praktisk
-          kommer til at foregå: https://dds.dk/arrangement/plus-start-plus-t-1
+          Man kan også følge med på DDS's hjemmeside, hvor tilmeldingen praktisk
+          kommer til at foregå:{" "}
+          <a
+            href="https://dds.dk/arrangement/plus-start-plus-t-1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-green underline hover:text-white"
+          >
+            https://dds.dk/arrangement/plus-start-plus-t-1
+          </a>
         </p>{" "}
         <br />
         <h2>Punkt 2 - Skal jeg så bare vente til maj?</h2>
@@ -65,8 +73,25 @@ export const Route = createFileRoute("/sign_up/guide_for_sign_up")({
         <h2>Punkt 4 - Så hvad skulle jeg gøre?!</h2>
         <ul className="list-inside list-disc space-y-2">
           <li>
-            Følg @plustspejder på instagram og PLUS T - Seniorkursus i DDS på
-            Facebook
+            Følg{" "}
+            <a
+              href="https://www.instagram.com/plustspejder/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-green underline hover:text-white"
+            >
+              @plustspejder
+            </a>{" "}
+            på instagram og{" "}
+            <a
+              href="https://www.facebook.com/plus.t.dds"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-green underline hover:text-white"
+            >
+              PLUS T - Seniorkursus i DDS
+            </a>{" "}
+            på Facebook
           </li>
           <li>
             Skriv d. 11.-17. oktober 2026 i kalenderen for at tage på PLUS T
