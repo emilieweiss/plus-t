@@ -18,49 +18,49 @@ export default function ImageCarousel() {
         <CarouselItem>
           <img
             src="/homepage/plus_carousel8.jpg"
-            className="h-[50vh] w-full rounded-lg object-cover md:h-[calc(100vh-120px)]"
+            className="h-[50vh] w-full rounded-lg object-cover md:h-[90vh]"
           />
         </CarouselItem>
         <CarouselItem>
           <img
             src="/homepage/plus_carousel2.jpg"
-            className="h-[50vh] w-full rounded-lg object-cover md:h-[calc(100vh-120px)]"
+            className="h-[50vh] w-full rounded-lg object-cover md:h-[90vh]"
           />
         </CarouselItem>
         <CarouselItem>
           <img
             src="/homepage/plus_carousel3.jpg"
-            className="h-[50vh] w-full rounded-lg object-cover md:h-[calc(100vh-120px)]"
+            className="h-[50vh] w-full rounded-lg object-cover md:h-[90vh]"
           />
         </CarouselItem>
         <CarouselItem>
           <img
             src="/homepage/plus_carousel4.jpg"
-            className="h-[50vh] w-full rounded-lg object-cover md:h-[calc(100vh-120px)]"
+            className="h-[50vh] w-full rounded-lg object-cover md:h-[90vh]"
           />
         </CarouselItem>
         <CarouselItem>
           <img
             src="/homepage/plus_carousel5.jpg"
-            className="h-[50vh] w-full rounded-lg object-cover md:h-[calc(100vh-120px)]"
+            className="h-[50vh] w-full rounded-lg object-cover md:h-[90vh]"
           />
         </CarouselItem>
         <CarouselItem>
           <img
             src="/homepage/plus_carousel6.jpg"
-            className="h-[50vh] w-full rounded-lg object-cover md:h-[calc(100vh-120px)]"
+            className="h-[50vh] w-full rounded-lg object-cover md:h-[90vh]"
           />
         </CarouselItem>
         <CarouselItem>
           <img
             src="/homepage/plus_carousel7.jpg"
-            className="h-[50vh] w-full rounded-lg object-cover md:h-[calc(100vh-120px)]"
+            className="h-[50vh] w-full rounded-lg object-cover md:h-[90vh]"
           />
         </CarouselItem>
         <CarouselItem>
           <img
             src="/homepage/plus_carousel1.jpg"
-            className="h-[50vh] w-full rounded-lg object-cover md:h-[calc(100vh-120px)]"
+            className="h-[50vh] w-full rounded-lg object-cover md:h-[90vh]"
           />
         </CarouselItem>
       </CarouselContent>
