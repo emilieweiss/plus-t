@@ -15,7 +15,7 @@ export const Route = createFileRoute("/sign_up/sign_up")({
 
         {/* Højre kolonne - Tekst (nedenunder på mobil) */}
         <div className="px-6 text-white md:w-2/5 md:pr-12 md:pl-0">
-          <h2 className="text-[22px] md:text-[40px]">
+          <h2 className="text-[22px] md:text-[38px]">
             Sådan tilmelder du dig PLUS T
           </h2>
           <p>
