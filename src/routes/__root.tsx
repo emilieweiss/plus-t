@@ -141,7 +141,7 @@ function RootLayout() {
               label="Om"
               baseTo="/about/about"
               items={[
-                { to: "/about/about_course", label: "Om kurset" },
+                { to: "/about/about_course", label: "Forberedelse til kursus" },
                 { to: "/about/about_team", label: "Om teamet" },
               ]}
             />
@@ -253,7 +253,7 @@ function RootLayout() {
                   className="hover:text-brand-green text-base text-gray-400"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Om kurset
+                  Forberedelse til kursus
                 </Link>
                 <Link
                   to="/about/about_team"
