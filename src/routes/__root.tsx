@@ -142,7 +142,7 @@ function RootLayout() {
               baseTo="/about/about"
               items={[
                 { to: "/about/about_course", label: "Forberedelse til kursus" },
-                { to: "/about/about_team", label: "Om teamet" },
+                // { to: "/about/about_team", label: "Om teamet" },
               ]}
             />
           </li>
