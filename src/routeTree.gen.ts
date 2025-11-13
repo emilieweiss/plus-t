@@ -12,7 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as Sign_upSign_upRouteImport } from './routes/sign_up/sign_up'
-import { Route as Sign_upGuide_for_sig_upRouteImport } from './routes/sign_up/guide_for_sig_up'
+import { Route as Sign_upGuide_for_sign_upRouteImport } from './routes/sign_up/guide_for_sign_up'
 import { Route as Past_coursesPast_coursesRouteImport } from './routes/past_courses/past_courses'
 import { Route as Past_coursesPast2025RouteImport } from './routes/past_courses/past2025'
 import { Route as Past_coursesPast2024RouteImport } from './routes/past_courses/past2024'
@@ -36,11 +36,12 @@ const Sign_upSign_upRoute = Sign_upSign_upRouteImport.update({
   path: '/sign_up/sign_up',
   getParentRoute: () => rootRouteImport,
 } as any)
-const Sign_upGuide_for_sig_upRoute = Sign_upGuide_for_sig_upRouteImport.update({
-  id: '/sign_up/guide_for_sig_up',
-  path: '/sign_up/guide_for_sig_up',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const Sign_upGuide_for_sign_upRoute =
+  Sign_upGuide_for_sign_upRouteImport.update({
+    id: '/sign_up/guide_for_sign_up',
+    path: '/sign_up/guide_for_sign_up',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const Past_coursesPast_coursesRoute =
   Past_coursesPast_coursesRouteImport.update({
     id: '/past_courses/past_courses',
@@ -88,7 +89,7 @@ export interface FileRoutesByFullPath {
   '/past_courses/past2024': typeof Past_coursesPast2024Route
   '/past_courses/past2025': typeof Past_coursesPast2025Route
   '/past_courses/past_courses': typeof Past_coursesPast_coursesRoute
-  '/sign_up/guide_for_sig_up': typeof Sign_upGuide_for_sig_upRoute
+  '/sign_up/guide_for_sign_up': typeof Sign_upGuide_for_sign_upRoute
   '/sign_up/sign_up': typeof Sign_upSign_upRoute
 }
 export interface FileRoutesByTo {
@@ -101,7 +102,7 @@ export interface FileRoutesByTo {
   '/past_courses/past2024': typeof Past_coursesPast2024Route
   '/past_courses/past2025': typeof Past_coursesPast2025Route
   '/past_courses/past_courses': typeof Past_coursesPast_coursesRoute
-  '/sign_up/guide_for_sig_up': typeof Sign_upGuide_for_sig_upRoute
+  '/sign_up/guide_for_sign_up': typeof Sign_upGuide_for_sign_upRoute
   '/sign_up/sign_up': typeof Sign_upSign_upRoute
 }
 export interface FileRoutesById {
@@ -115,7 +116,7 @@ export interface FileRoutesById {
   '/past_courses/past2024': typeof Past_coursesPast2024Route
   '/past_courses/past2025': typeof Past_coursesPast2025Route
   '/past_courses/past_courses': typeof Past_coursesPast_coursesRoute
-  '/sign_up/guide_for_sig_up': typeof Sign_upGuide_for_sig_upRoute
+  '/sign_up/guide_for_sign_up': typeof Sign_upGuide_for_sign_upRoute
   '/sign_up/sign_up': typeof Sign_upSign_upRoute
 }
 export interface FileRouteTypes {
@@ -130,7 +131,7 @@ export interface FileRouteTypes {
     | '/past_courses/past2024'
     | '/past_courses/past2025'
     | '/past_courses/past_courses'
-    | '/sign_up/guide_for_sig_up'
+    | '/sign_up/guide_for_sign_up'
     | '/sign_up/sign_up'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -143,7 +144,7 @@ export interface FileRouteTypes {
     | '/past_courses/past2024'
     | '/past_courses/past2025'
     | '/past_courses/past_courses'
-    | '/sign_up/guide_for_sig_up'
+    | '/sign_up/guide_for_sign_up'
     | '/sign_up/sign_up'
   id:
     | '__root__'
@@ -156,7 +157,7 @@ export interface FileRouteTypes {
     | '/past_courses/past2024'
     | '/past_courses/past2025'
     | '/past_courses/past_courses'
-    | '/sign_up/guide_for_sig_up'
+    | '/sign_up/guide_for_sign_up'
     | '/sign_up/sign_up'
   fileRoutesById: FileRoutesById
 }
@@ -170,7 +171,7 @@ export interface RootRouteChildren {
   Past_coursesPast2024Route: typeof Past_coursesPast2024Route
   Past_coursesPast2025Route: typeof Past_coursesPast2025Route
   Past_coursesPast_coursesRoute: typeof Past_coursesPast_coursesRoute
-  Sign_upGuide_for_sig_upRoute: typeof Sign_upGuide_for_sig_upRoute
+  Sign_upGuide_for_sign_upRoute: typeof Sign_upGuide_for_sign_upRoute
   Sign_upSign_upRoute: typeof Sign_upSign_upRoute
 }
 
@@ -197,11 +198,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Sign_upSign_upRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sign_up/guide_for_sig_up': {
-      id: '/sign_up/guide_for_sig_up'
-      path: '/sign_up/guide_for_sig_up'
-      fullPath: '/sign_up/guide_for_sig_up'
-      preLoaderRoute: typeof Sign_upGuide_for_sig_upRouteImport
+    '/sign_up/guide_for_sign_up': {
+      id: '/sign_up/guide_for_sign_up'
+      path: '/sign_up/guide_for_sign_up'
+      fullPath: '/sign_up/guide_for_sign_up'
+      preLoaderRoute: typeof Sign_upGuide_for_sign_upRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/past_courses/past_courses': {
@@ -266,7 +267,7 @@ const rootRouteChildren: RootRouteChildren = {
   Past_coursesPast2024Route: Past_coursesPast2024Route,
   Past_coursesPast2025Route: Past_coursesPast2025Route,
   Past_coursesPast_coursesRoute: Past_coursesPast_coursesRoute,
-  Sign_upGuide_for_sig_upRoute: Sign_upGuide_for_sig_upRoute,
+  Sign_upGuide_for_sign_upRoute: Sign_upGuide_for_sign_upRoute,
   Sign_upSign_upRoute: Sign_upSign_upRoute,
 }
 export const routeTree = rootRouteImport

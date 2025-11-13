@@ -33,7 +33,7 @@ export const Route = createFileRoute("/contact")({
                 Mail: aksel.buur@hotmail.com
               </li>
               <li className="mb-4; text-sm font-light md:text-base">
-                Tlf.: 2923 4567
+                Tlf.: 42240534
               </li>
             </ul>
           </div>
