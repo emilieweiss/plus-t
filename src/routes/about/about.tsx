@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/about/about")({
   component: () => (
-    <div className="flex min-h-[calc(100vh-130px)] items-center justify-center">
+    <div className="flex flex-1 items-center justify-center">
       <div className="flex w-full max-w-[1520px] flex-col items-center gap-8 md:flex-row">
         {/* Venstre kolonne - Billede (øverst på mobil) */}
         <div className="md:w-3/5">

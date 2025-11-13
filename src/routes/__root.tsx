@@ -98,7 +98,7 @@ function RootLayout() {
   }, [menuOpen]);
 
   return (
-    <div className="bg-brand-black flex min-h-screen w-screen flex-col text-white">
+    <div className="bg-brand-black flex min-h-screen w-full flex-col text-white">
       <nav className="flex h-25 items-center px-6 lg:px-10">
         <Link to="/">
           <img
@@ -276,7 +276,7 @@ function RootLayout() {
         </div>
       )}
 
-      <main className="flex-1 py-0 md:py-8">
+      <main className="flex w-full flex-1 flex-col py-0 md:py-8">
         <Outlet />
       </main>
     </div>
