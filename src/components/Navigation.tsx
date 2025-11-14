@@ -93,15 +93,15 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="flex h-25 items-center px-6 lg:px-10">
+      <nav className="flex h-25 items-center px-6 md:px-10">
         <Link to="/">
           <img
             src={logo}
             alt="Plus T logo"
-            className="mt-0 h-10 w-auto cursor-pointer lg:mt-10 lg:h-20"
+            className="mt-0 h-10 w-auto cursor-pointer md:mt-10 md:h-20"
           />
         </Link>
-        <ul className="ml-auto hidden gap-12 lg:flex">
+        <ul className="ml-auto hidden gap-12 md:flex">
           <li>
             <Link
               to="/"

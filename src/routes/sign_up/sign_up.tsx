@@ -3,9 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/sign_up/sign_up")({
   component: () => (
     <div className="flex min-h-[calc(100vh-130px)] items-center justify-center">
-      <div className="flex w-full max-w-[1520px] flex-col items-center gap-8 md:flex-row">
+      <div className="layout:flex-row flex w-full max-w-[1520px] flex-col items-center gap-8">
         {/* Venstre kolonne - Billede (øverst på mobil) */}
-        <div className="md:w-3/5">
+        <div className="layout:w-3/5">
           <img
             src="/homepage/signup.jpg"
             alt="PLUS T tilmelding"
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/sign_up/sign_up")({
         </div>
 
         {/* Højre kolonne - Tekst (nedenunder på mobil) */}
-        <div className="px-6 text-white md:w-2/5 md:pr-12 md:pl-0">
+        <div className="layout:w-2/5 layout:pr-12 layout:pl-0 px-6 text-white">
           <h2 className="text-[20px] md:text-[38px]">
             Sådan tilmelder du dig PLUS T
           </h2>

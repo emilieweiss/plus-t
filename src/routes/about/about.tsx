@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/about/about")({
   component: () => (
     <div className="flex min-h-[calc(100vh-130px)] items-center justify-center">
-      <div className="flex w-full max-w-[1520px] flex-col items-center gap-8 md:flex-row">
+      <div className="layout:flex-row flex w-full max-w-[1520px] flex-col items-center gap-8">
         {/* Venstre kolonne - Billede (øverst på mobil) */}
-        <div className="md:w-3/5">
+        <div className="layout:w-3/5">
           <img
             src="/homepage/om.jpg"
             alt="Om PLUS T"
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/about/about")({
         </div>
 
         {/* Højre kolonne - Tekst (nedenunder på mobil) */}
-        <div className="px-6 text-white md:w-2/5 md:pr-12 md:pl-0">
+        <div className="layout:w-2/5 layout:pr-12 layout:pl-0 px-6 text-white">
           <h2 className="text-[22px] md:text-[38px]">Om PLUS T</h2>
           <p>
             PLUS T er et spejderkursus for dig, der vil mere end det sædvanlige.

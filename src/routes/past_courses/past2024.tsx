@@ -40,14 +40,14 @@ const images2025 = [
 export const Route = createFileRoute("/past_courses/past2024")({
   component: () => (
     <div className="flex min-h-[calc(100vh-130px)] items-center justify-center">
-      <div className="flex w-full max-w-[1520px] flex-col items-center gap-8 px-6 md:flex-row md:px-0">
+      <div className="layout:flex-row flex w-full max-w-[1520px] flex-col items-center gap-8">
         {/* Venstre kolonne - Carousel (øverst på mobil) */}
-        <div className="md:w-3/5">
+        <div className="layout:w-3/5 layout:pl-6 w-full">
           <PastCoursesCarousel images={images2025} />
         </div>
 
         {/* Højre kolonne - Tekst (nedenunder på mobil) */}
-        <div className="text-white md:w-2/5">
+        <div className="layout:w-2/5 layout:pr-6 layout:pl-0 px-6 text-white">
           <h2 className="text-[22px] md:text-[38px]">PLUS T 2024</h2>
           <p>
             PLUS T 2024 startede i Aarhus, men det var ikke meget deltagerne fik

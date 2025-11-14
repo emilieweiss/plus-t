@@ -31,12 +31,14 @@ export default function PastCoursesCarousel({
           return (
             <CarouselItem key={index}>
               <div className="relative w-full">
-                <div className="relative h-[40vh] w-full overflow-hidden rounded-lg md:h-[60vh]">
-                  <img
-                    src={src}
-                    alt={caption || `Slide ${index + 1}`}
-                    className="h-full w-full object-cover object-center md:object-right-bottom"
-                  />
+                <div className="relative w-full overflow-hidden rounded-lg">
+                  <div className="relative aspect-[4/3] w-full md:aspect-[3/2]">
+                    <img
+                      src={src}
+                      alt={caption || `Slide ${index + 1}`}
+                      className="absolute inset-0 h-full w-full object-cover object-center"
+                    />
+                  </div>
                 </div>
                 {caption && (
                   <p className="mt-3 text-center text-sm text-white">
