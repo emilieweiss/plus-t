@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-export const Route = createFileRoute("/contact/contact")({
+export const Route = createFileRoute("/contact")({
   component: () => (
     <>
       <div className="mb-3 flex flex-col items-center gap-2 px-4 pt-2 md:mb-6 md:gap-6 md:pt-8">
