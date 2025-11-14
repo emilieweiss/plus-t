@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as Sign_upSign_upRouteImport } from './routes/sign_up/sign_up'
 import { Route as Sign_upGuide_for_sign_upRouteImport } from './routes/sign_up/guide_for_sign_up'
@@ -17,15 +16,11 @@ import { Route as Past_coursesPast_coursesRouteImport } from './routes/past_cour
 import { Route as Past_coursesPast2025RouteImport } from './routes/past_courses/past2025'
 import { Route as Past_coursesPast2024RouteImport } from './routes/past_courses/past2024'
 import { Route as Past_coursesPast2023RouteImport } from './routes/past_courses/past2023'
+import { Route as ContactContactRouteImport } from './routes/contact/contact'
 import { Route as AboutAbout_teamRouteImport } from './routes/about/about_team'
 import { Route as AboutAbout_courseRouteImport } from './routes/about/about_course'
 import { Route as AboutAboutRouteImport } from './routes/about/about'
 
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -63,6 +58,11 @@ const Past_coursesPast2023Route = Past_coursesPast2023RouteImport.update({
   path: '/past_courses/past2023',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactContactRoute = ContactContactRouteImport.update({
+  id: '/contact/contact',
+  path: '/contact/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutAbout_teamRoute = AboutAbout_teamRouteImport.update({
   id: '/about/about_team',
   path: '/about/about_team',
@@ -81,10 +81,10 @@ const AboutAboutRoute = AboutAboutRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/contact': typeof ContactRoute
   '/about/about': typeof AboutAboutRoute
   '/about/about_course': typeof AboutAbout_courseRoute
   '/about/about_team': typeof AboutAbout_teamRoute
+  '/contact/contact': typeof ContactContactRoute
   '/past_courses/past2023': typeof Past_coursesPast2023Route
   '/past_courses/past2024': typeof Past_coursesPast2024Route
   '/past_courses/past2025': typeof Past_coursesPast2025Route
@@ -94,10 +94,10 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/contact': typeof ContactRoute
   '/about/about': typeof AboutAboutRoute
   '/about/about_course': typeof AboutAbout_courseRoute
   '/about/about_team': typeof AboutAbout_teamRoute
+  '/contact/contact': typeof ContactContactRoute
   '/past_courses/past2023': typeof Past_coursesPast2023Route
   '/past_courses/past2024': typeof Past_coursesPast2024Route
   '/past_courses/past2025': typeof Past_coursesPast2025Route
@@ -108,10 +108,10 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/contact': typeof ContactRoute
   '/about/about': typeof AboutAboutRoute
   '/about/about_course': typeof AboutAbout_courseRoute
   '/about/about_team': typeof AboutAbout_teamRoute
+  '/contact/contact': typeof ContactContactRoute
   '/past_courses/past2023': typeof Past_coursesPast2023Route
   '/past_courses/past2024': typeof Past_coursesPast2024Route
   '/past_courses/past2025': typeof Past_coursesPast2025Route
@@ -123,10 +123,10 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/contact'
     | '/about/about'
     | '/about/about_course'
     | '/about/about_team'
+    | '/contact/contact'
     | '/past_courses/past2023'
     | '/past_courses/past2024'
     | '/past_courses/past2025'
@@ -136,10 +136,10 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/contact'
     | '/about/about'
     | '/about/about_course'
     | '/about/about_team'
+    | '/contact/contact'
     | '/past_courses/past2023'
     | '/past_courses/past2024'
     | '/past_courses/past2025'
@@ -149,10 +149,10 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/contact'
     | '/about/about'
     | '/about/about_course'
     | '/about/about_team'
+    | '/contact/contact'
     | '/past_courses/past2023'
     | '/past_courses/past2024'
     | '/past_courses/past2025'
@@ -163,10 +163,10 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ContactRoute: typeof ContactRoute
   AboutAboutRoute: typeof AboutAboutRoute
   AboutAbout_courseRoute: typeof AboutAbout_courseRoute
   AboutAbout_teamRoute: typeof AboutAbout_teamRoute
+  ContactContactRoute: typeof ContactContactRoute
   Past_coursesPast2023Route: typeof Past_coursesPast2023Route
   Past_coursesPast2024Route: typeof Past_coursesPast2024Route
   Past_coursesPast2025Route: typeof Past_coursesPast2025Route
@@ -177,13 +177,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -233,6 +226,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Past_coursesPast2023RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact/contact': {
+      id: '/contact/contact'
+      path: '/contact/contact'
+      fullPath: '/contact/contact'
+      preLoaderRoute: typeof ContactContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about/about_team': {
       id: '/about/about_team'
       path: '/about/about_team'
@@ -259,10 +259,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ContactRoute: ContactRoute,
   AboutAboutRoute: AboutAboutRoute,
   AboutAbout_courseRoute: AboutAbout_courseRoute,
   AboutAbout_teamRoute: AboutAbout_teamRoute,
+  ContactContactRoute: ContactContactRoute,
   Past_coursesPast2023Route: Past_coursesPast2023Route,
   Past_coursesPast2024Route: Past_coursesPast2024Route,
   Past_coursesPast2025Route: Past_coursesPast2025Route,
