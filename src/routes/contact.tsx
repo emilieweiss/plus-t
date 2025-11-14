@@ -17,7 +17,7 @@ export const Route = createFileRoute("/contact")({
           {/* Aksel kolonne */}
           <div className="flex max-w-md flex-col items-center px-6 md:px-0">
             <img
-              src="/contact/aksel.jpg"
+              src="/contact_pics/aksel.jpg"
               alt="Aksel"
               className="mb-3 h-[250px] w-[175px] rounded-lg object-cover md:mb-6 md:h-[400px] md:w-[300px]"
             />
@@ -41,7 +41,7 @@ export const Route = createFileRoute("/contact")({
           {/* Thea kolonne */}
           <div className="flex max-w-md flex-col items-center px-6 md:px-0">
             <img
-              src="/contact/thea.jpg"
+              src="/contact_pics/thea.jpg"
               alt="Thea"
               className="mb-3 h-[250px] w-[175px] rounded-lg object-cover md:mb-6 md:h-[400px] md:w-[300px]"
             />
